@@ -48,6 +48,14 @@ case "$1" in
         ./configure $FLAGS
         make HOST_CC="gcc" CFLAGS="-O2 -pipe" HOST_CFLAGS="-O2 -pipe -mtune=generic" LDFLAGS="" HOST_LDFLAGS="" TARGET_CFLAGS="${CFLAGS}" TARGET_LDFLAGS="${LDFLAGS}" TARGET_LIBS="${EXTRA_LIBS}" TARGET_SONAME="libsodium.so" INSTALL_SONAME="libsodium.so" CROSS="$NDKP" TARGET_FLAGS="${NDKF}" TARGET_SYS=Linux DESTDIR="${DEST}" PREFIX=
         ;;
+    linux-32)
+        ./configure $FLAGS
+        make HOST_CC="gcc -m32" CFLAGS="-O2 -pipe" HOST_CFLAGS="-O2 -pipe -mtune=generic" LDFLAGS="" HOST_LDFLAGS="" TARGET_CFLAGS="${CFLAGS}" TARGET_LDFLAGS="${LDFLAGS}" TARGET_LIBS="${EXTRA_LIBS}" TARGET_SONAME="libsodium.so" INSTALL_SONAME="libsodium.so" CROSS="" TARGET_FLAGS="" TARGET_SYS=Linux DESTDIR="${DEST}" PREFIX=
+        ;;
+    linux-64)
+        ./configure $FLAGS
+        make HOST_CC="gcc" CFLAGS="-O2 -pipe" HOST_CFLAGS="-O2 -pipe -mtune=generic" LDFLAGS="" HOST_LDFLAGS="" TARGET_CFLAGS="${CFLAGS}" TARGET_LDFLAGS="${LDFLAGS}" TARGET_LIBS="${EXTRA_LIBS}" TARGET_SONAME="libsodium.so" INSTALL_SONAME="libsodium.so" CROSS="" TARGET_FLAGS="" TARGET_SYS=Linux DESTDIR="${DEST}" PREFIX=
+        ;;
     *)
         echo 'specify one of "armeabi-v7a", "arm64-v8a", "x86", "x86_64" or "clean" as first argument'
         exit 1
