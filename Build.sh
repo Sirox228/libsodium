@@ -3,7 +3,7 @@ DEST=$(cd "$(dirname "$0")" && pwd)/build/$1
 HOST_ARCH="linux-x86_64"
 
 cd libsodium
-./autogen.sh -f
+./autogen.sh -s
 # ./configure --host=arm-androideabi-linux --enable-float-approx --disable-doc --disable-extra-programs
 FLAGS="--enable-opt --with-pthreads"
 
