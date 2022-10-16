@@ -80,7 +80,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: libsodium-Aarch64
-          path: libsodium/.libs/libsodium.a
+          path: libsodium
 
   # This workflow contains a single job called "build"
   buildx86:
