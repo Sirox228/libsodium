@@ -42,7 +42,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: libsodium-Arm
-          path: libsodium/.libs/libsodium.a
+          path: libsodium/src/libsodium/.libs/libsodium.a
 
   buildArm64:
     # The type of runner that the job will run on
@@ -80,7 +80,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: libsodium-Aarch64
-          path: libsodium
+          path: libsodium/src/libsodium/.libs/libsodium.a
 
   # This workflow contains a single job called "build"
   buildx86:
@@ -119,7 +119,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: libsodium-x86
-          path: libsodium/.libs/libsodium.a
+          path: libsodium/src/libsodium/.libs/libsodium.a
 
   # This workflow contains a single job called "build"
   buildx86_64:
@@ -158,4 +158,4 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: libsodium-x86_64
-          path: libsodium/.libs/libsodium.a
+          path: libsodium/src/libsodium/.libs/libsodium.a
