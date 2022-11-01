@@ -26,19 +26,11 @@ jobs:
           cp -f dist-build/android-armv7-a.sh android-armv7-a.sh
           cp -f dist-build/android-armv8-a.sh android-armv8-a.sh
           cp -f dist-build/android-build.sh android-build.sh
-      - name: Build-armv7-a
-        if: matrix.arch == 'armv7-a'
+      - name: Build
         run: |
           cd libsodium
-          ./android-armv7-a.sh LIBSODIUM_FULL_BUILD=yes
-          tree libsodium/src
-      - name: Build-armv8-a
-        if: matrix.arch == 'armv8-a'
-        run: |
-          cd libsodium
-          ./android-armv8-a.sh LIBSODIUM_FULL_BUILD=yes
-          tree libsodium/src
+          ./android-${{matrix.arch}}.sh LIBSODIUM_FULL_BUILD=yes
       - uses: actions/upload-artifact@v2
         with:
           name: libsodium-${{matrix.arch}}
-          path: libsodium/libsodium-android-armv8-a+crypto
+          path: libsodium/libsodium-android-${{matrix.arch}}+crypto/lib/libsodium.a
