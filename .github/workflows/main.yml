@@ -21,22 +21,20 @@ jobs:
           sudo apt install gcc-multilib -y
           git clone https://github.com/jedisct1/libsodium
           sudo chmod -R 777 *
+          cd libsodium
+          ./autogen.sh -s
+          cp -f dist-build/android-armv7-a.sh android-armv7-a.sh
+          cp -f dist-build/android-armv8-a.sh android-armv8-a.sh
       - name: Build-armv7-a
         if: matrix.arch == 'armv7-a'
         run: |
           cd libsodium
-          ./autogen.sh -s
-          ls
-          cd dist-build
           ./android-armv7-a.sh LIBSODIUM_FULL_BUILD=yes
           tree libsodium/src
       - name: Build-armv8-a
         if: matrix.arch == 'armv8-a'
         run: |
           cd libsodium
-          ./autogen.sh -s
-          ls
-          cd dist-build
           ./android-armv8-a.sh LIBSODIUM_FULL_BUILD=yes
           tree libsodium/src
       - uses: actions/upload-artifact@v2
