@@ -25,7 +25,7 @@ jobs:
         if: matrix.arch == 'armv7-a'
         run: |
           cd libsodium
-          ./autogen.sh
+          ./autogen.sh -s
           cd dist-build
           ./android-armv7-a.sh LIBSODIUM_FULL_BUILD=yes
           tree libsodium/src
@@ -33,7 +33,7 @@ jobs:
         if: matrix.arch == 'armv8-a'
         run: |
           cd libsodium
-          ./autogen.sh
+          ./autogen.sh -s
           cd dist-build
           ./android-armv8-a.sh LIBSODIUM_FULL_BUILD=yes
           tree libsodium/src
