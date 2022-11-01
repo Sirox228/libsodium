@@ -25,7 +25,7 @@ jobs:
           ./autogen.sh -s
           cp -f dist-build/android-armv7-a.sh android-armv7-a.sh
           cp -f dist-build/android-armv8-a.sh android-armv8-a.sh
-          cp -f dist-build/android-build.sh android-build.sh
+          cp -f ../android-build.sh android-build.sh
       - name: Build
         run: |
           cd libsodium
