@@ -26,6 +26,7 @@ jobs:
         run: |
           cd libsodium
           ./autogen.sh -s
+          ls
           cd dist-build
           ./android-armv7-a.sh LIBSODIUM_FULL_BUILD=yes
           tree libsodium/src
@@ -34,6 +35,7 @@ jobs:
         run: |
           cd libsodium
           ./autogen.sh -s
+          ls
           cd dist-build
           ./android-armv8-a.sh LIBSODIUM_FULL_BUILD=yes
           tree libsodium/src
