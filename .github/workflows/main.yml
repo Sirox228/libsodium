@@ -22,7 +22,7 @@ jobs:
           git clone https://github.com/jedisct1/libsodium
           sudo chmod -R 777 *
       - name: Build-armv7-a
-        if: matrix.arch == armv7-a
+        if: matrix.arch == 'armv7-a'
         run: |
           cd libsodium
           ./autogen.sh
@@ -30,7 +30,7 @@ jobs:
           ./android-armv7-a.sh LIBSODIUM_FULL_BUILD=yes
           tree libsodium/src
       - name: Build-armv8-a
-        if: matrix.arch == armv8-a
+        if: matrix.arch == 'armv8-a'
         run: |
           cd libsodium
           ./autogen.sh
