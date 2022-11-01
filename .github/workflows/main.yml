@@ -22,13 +22,17 @@ jobs:
           git clone https://github.com/jedisct1/libsodium
           sudo chmod -R 777 *
       - name: Build
+        env:
+          ARCH: ${matrix.arch}
         run: |
           cd libsodium
           ./autogen.sh
           cd dist-build
-          ./android-${matrix.arch}.sh LIBSODIUM_FULL_BUILD=yes
+          ./android-${ARCH}.sh LIBSODIUM_FULL_BUILD=yes
           tree libsodium/src
       - uses: actions/upload-artifact@v2
+        env:
+          ARCH: ${matrix.arch}
         with:
-          name: libsodium-${matrix.arch}
+          name: libsodium-${ARCH}
           path: libsodium/src/libsodium.a
